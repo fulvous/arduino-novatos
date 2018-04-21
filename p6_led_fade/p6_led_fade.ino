@@ -1,4 +1,6 @@
 #define MI_LED 11
+#define ESPERA 10
+
 
 void setup() {
   // Inicializa LED como salida.
@@ -7,10 +9,18 @@ void setup() {
 
 void loop() {
   // Encender el led de forma progresiva
-  for ( int i=0; i++; i<256 ) {
+  for ( int i=0; i<256; i++) {
     //Aumentar intensidad
     analogWrite(MI_LED,i);
     //Esperar un poco
-    delay(100);
+    delay(ESPERA);
   };  
+  
+  //Apagar el led de forma progresiva
+  for ( int i=255; i>0; i--) {
+    //Disminuir la intensidad
+    analogWrite(MI_LED,i);
+    //Esperar un poco
+    delay(ESPERA);
+  };
 }
